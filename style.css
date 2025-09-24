@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: rgb(71, 22, 2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+header div {
+    justify-content: start;
+}
+.tamanhos{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    background-color: antiquewhite;
+}
+.tamanho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tamanho img{
+    width: 225px;
+    border-radius: 50%;
+}
+.Pizzas {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 1px 20px 1px rgba(0, 0, 0, 0.473);
+    margin: 50px;
+    
+    background-color: rgb(228, 183, 146);
+}
+
+article {
+    padding: 20px;
+}
+.Pizzas h1{
+    color: rgb(43, 20, 1);
+}
+.Pizzas h2{
+    color: rgb(60, 30, 4);
+}
+.Pizzas h3 {
+ color: rgb(255, 128, 0);
+}
+article h3{
+    padding: 10px;
+}
+article p {
+    padding-left: 19px;
+}
+
+#aperitivos {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.473);
+    margin-top: 20px;
+    margin: 50px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+footer {
+    background-color: black;
+    padding: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+input[type="text"] {
+    background-color: blue;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    transition: color 0.4s;
+    color: rgb(238, 136, 68);
+}
