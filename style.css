@@ -10,6 +10,12 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header {
     background-color: black;
     color: white;
@@ -24,30 +30,50 @@ header {
 header div {
     justify-content: start;
 }
-.tamanhos{
+
+main {
+    flex-grow: 1;
+}
+
+.tamanhos {
     display: flex;
     justify-content: center;
     justify-content: space-around;
     background-color: antiquewhite;
 }
-.tamanho{
+
+.tamanho {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.tamanho img{
+
+.tamanho img {
     width: 225px;
     border-radius: 50%;
 }
+
 @media (max-width:400px) {
-    .tamanhos{
+    .tamanhos {
         flex-direction: column;
     }
+
     img {
         width: 70px;
     }
 }
+
+@media (max-width:900px) {
+    .tamanhos {
+        flex-direction: column;
+    }
+
+    img {
+        width: 100px;
+    }
+}
+
 .Pizzas {
     display: flex;
     flex-direction: column;
@@ -55,25 +81,30 @@ header div {
     border-radius: 20px;
     box-shadow: 2px 1px 20px 1px rgba(0, 0, 0, 0.473);
     margin: 50px;
-    
+
     background-color: rgb(228, 183, 146);
 }
 
 article {
     padding: 20px;
 }
-.Pizzas h1{
+
+.Pizzas h1 {
     color: rgb(43, 20, 1);
 }
-.Pizzas h2{
+
+.Pizzas h2 {
     color: rgb(60, 30, 4);
 }
+
 .Pizzas h3 {
- color: rgb(255, 128, 0);
+    color: rgb(255, 128, 0);
 }
-article h3{
+
+article h3 {
     padding: 10px;
 }
+
 article p {
     padding-left: 19px;
 }
@@ -91,6 +122,8 @@ article p {
 }
 
 footer {
+    display: flex;
+    justify-content: space-around;
     background-color: black;
     padding: 30px;
     color: rgb(255, 255, 255);
@@ -98,7 +131,7 @@ footer {
 }
 
 input[type="text"] {
-    background-color: blue;
+    border: red 1px solid;
 }
 
 a {
@@ -109,4 +142,39 @@ a {
 a:hover {
     transition: color 0.4s;
     color: rgb(238, 136, 68);
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+    border: #6a0dad 3px solid;
+    border-radius: 7px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+input:hover {
+    border: #8b1adb 3px solid;
+}
+
+button {
+    padding: 20px;
+    background: #5c0e94;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #a748eb;
+    color: aliceblue;
+}
+
+.butao {
+    margin-left: 0.7rem;
+}
+.avalia a{
+    color: #45d364;
+}
+.avalia a:hover{
+    color: #45a6d3;
 }

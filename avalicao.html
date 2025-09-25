@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliacões</title>
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+  <header>
+    <h1>Avaliacões</h1> <a href="index.html"><button> clique aqui para voltar</button></a>
+  </header>
+
+  <main>
+    <h1>todas as avaliacões</h1>
+    <ul id="listaavaliacoes"></ul>
+  </main>
+
+  <footer>
+
+  </footer>
+<script>
+  const lista = document.getElementById("listaavaliacoes");
+  const avaliacoes = JSON.parse(localStorage.getItem("avaliacoes")) || [];
+
+  avaliacoes.forEach(txt => {
+    const li = document.createElement("li");
+    li.textContent = txt;
+    lista.appendChild(li);
+  });
+  </script>
+</body>
+
+
+</html>

@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(230, 230, 230);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px;
+  background-color: black;
+  color: rgb(233, 232, 232);
+}
+
+main {
+  flex-grow: 1;
+}
+
+button {
+  background-color: rgb(63, 124, 126);
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  color: rgb(233, 232, 232);
+}
+
+button:hover {
+  background-color: rgb(99, 205, 209);
+  color: rgb(31, 30, 30);
+}
+
+
+
+
+
+
+footer {
+  background-color: black;
+  padding: 30px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}

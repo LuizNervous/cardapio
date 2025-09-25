@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página</title>
+    <title>Cardapio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,7 +13,7 @@
 
         <img src="imagens/pizza.png" alt="" width="200px">
         <div>
-            <h1>Cardápio</h1>
+            <h1>Cardapio</h1>
         </div>
         <nav>
             <li><a href="#Classicas">Pizzas Clássicas</a></li>
@@ -24,7 +24,7 @@
         </nav>
     </header>
     <main>
-            <section class="tamanhos">
+        <section class="tamanhos">
             <article class="tamanho">
                 <img src="imagens/esfirra.png" alt="">
                 <h2>Esfirra</h2>
@@ -48,7 +48,7 @@
                 <h2>R$ 55,00</h2>
             </article>
         </section>
-        
+
         <section class="Pizzas">
             <h1>Pizzas</h1>
             <article id="Classicas">
@@ -70,7 +70,7 @@
             <article id="Doces">
                 <h2>Doces</h2>
                 <h3>Brigadeiro</h3>
-                <p> brigadeiro de chocolate, granulado, massa de pizza doc</p>
+                <p> brigadeiro de chocolate, granulado, massa de pizza doce</p>
                 <h3>Romeu e Julieta</h3>
                 <p> queijo muçarela ou queijo minas padrão, goiabada</p>
             </article>
@@ -79,26 +79,36 @@
             <h1>Aperitivos</h1>
             <article class="Porções">
                 <h2 id="Bebidas">Bebidas</h2>
-                <p>Coca-cola 2L</p>
-                <p>Coca-cola zero 2L</p>
+                <p>Coca-cola 2L ($12,00)</p>
+                <p>Coca-cola zero 2L ($12,00)</p>
             </article>
             <article>
                 <h2>Drinks</h2>
-                <p>Caipirinha 500ML</p>
-                <p>Moranguiho ao álcool 500ML</p>
+                <p>Caipirinha 500ML ($18,00)</p>
+                <p>Moranguinho ao álcool 500ML ($20,00)</p>
             </article>
             <article>
                 <h2>Porcões</h2>
-                <p>Batata frita</p>
-                <p>Asinha de frango</p>
+                <p>Batata frita ($22,00)</p>
+                <p>Asinha de frango ($28,00)</p>
             </article>
         </section>
 
     </main>
     <footer>
-        <p>@ Luiz Gustavo. Todos os direitos reservados </p> <label for="input">O que achou do meu cardapio </label>
-        <input type="text" name="input" id="" required>
+        <div>@ Luiz Gustavo. Todos os direitos reservados.  </div>
+     
+        <div><label for="input">Quer adiconar uma avaliação? </label>
+            <input type="text" name="input" id="avainput" required placeholder="escreva...">
+            <div class="butao" id="butao"><button type="submit"> Enviar</button></div></div>
+       
+      
+        <p class="avalia">Quer adiconar uma avaliação? entre <a href="avalicao.html">aqui </a> para ver as <br> avaliações e fazer a sua.</p>
+        <div class="avalia">
+            <p>Todas as avaliacões -> <a href="avalicao.html">aqui </a> 
+        </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
