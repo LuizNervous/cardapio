@@ -24,7 +24,11 @@ header {
   background-color: black;
   color: rgb(233, 232, 232);
 }
-
+.conteiner{
+  display: flex;
+  
+  
+}
 main {
   flex-grow: 1;
 }
@@ -41,7 +45,21 @@ button:hover {
   background-color: rgb(99, 205, 209);
   color: rgb(31, 30, 30);
 }
+.notas{
+  background-color: aliceblue;
+  border-radius: 8px;
+}
+input {
+    border: #6a0dad 3px solid;
+    border-radius: 7px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: auto;
+    padding: 20px;
+}
 
+input:hover {
+    border: #8b1adb 3px solid;
+}
 
 
 

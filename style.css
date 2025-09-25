@@ -6,7 +6,7 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: rgb(71, 22, 2);
+     background-color: rgb(228, 183, 146);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -79,7 +79,7 @@ main {
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 2px 1px 20px 1px rgba(0, 0, 0, 0.473);
+  
     margin: 50px;
 
     background-color: rgb(228, 183, 146);
@@ -114,10 +114,10 @@ article p {
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.473);
+    
     margin-top: 20px;
     margin: 50px;
-    background-color: rgb(255, 255, 255);
+     background-color: rgb(228, 183, 146);
 
 }
 
@@ -142,6 +142,7 @@ a {
 a:hover {
     transition: color 0.4s;
     color: rgb(238, 136, 68);
+    
 }
 
 input {
@@ -167,6 +168,7 @@ button {
 button:hover {
     background: #a748eb;
     color: aliceblue;
+    cursor: pointer;
 }
 
 .butao {

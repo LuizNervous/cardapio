@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -11,27 +11,28 @@
 
 <body>
   <header>
-    <h1>Avaliacões</h1> <a href="index.html"><button> clique aqui para voltar</button></a>
+    <h1>Avaliacões</h1> <a href="index.html"><button> <h4>Clique aqui para voltar para o Cardapio</h4></button></a>
   </header>
 
   <main>
-    <h1>todas as avaliacões</h1>
-    <ul id="listaavaliacoes"></ul>
+    <div class="add"><label for="input">
+        <h1>Quer adiconar uma avaliação? </h1>
+      </label>
+      <div class="conteiner"><div><input type="text" name="input" id="avainput" placeholder="Escreva sua avaliação..." required></div>
+      <div class="butao"><button id="butao" type="submit"> Enviar</button></div></div>
+      
+    </div>
+    <div class="notas">
+      <h1>Todas as avaliacões</h1>
+      <ul id="listaavaliacoes"></ul>
+    </div>
+
   </main>
 
   <footer>
 
   </footer>
-<script>
-  const lista = document.getElementById("listaavaliacoes");
-  const avaliacoes = JSON.parse(localStorage.getItem("avaliacoes")) || [];
-
-  avaliacoes.forEach(txt => {
-    const li = document.createElement("li");
-    li.textContent = txt;
-    lista.appendChild(li);
-  });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 

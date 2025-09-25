@@ -1,25 +1,35 @@
-const input= document.getElementById("avainput");
-const btn= document.getElementsById("butao");
-const lista = document.getElementById("listaavaliações");
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const STORAGE_KEY = 'avaliacoes';
 
-function carregar(){
-  lista.innerHTML="";
-  const avaliacoes = JSON.parse(localStorage.getItem(avaliacoes)) || [];
-  avaliacoes.forEach(txt => {
-    const li = document.createElement("li");
-    li.textContent= txt;
-    lista.appendChild(li);
-  });
-}
-btn.addEventListener("click" , () => {
-   
-  const texto=input.value.trim();
-  if(texto){
-    const avaliacoes= JSON.parse(localStorage.getItem("avaliacoes")) || [];
-    avaliacoes.push(texto);
-    localStorage.setItem("avaliacoes", JSON.stringify (avaliacoes))
-    input.value="";
-    carregar();
+  const input = document.getElementById('avainput');
+  const btn = document.getElementById('butao');
+  const lista = document.getElementById('listaavaliacoes');
+
+  function carregar() {
+    if (!lista) return; // se a página não tiver a lista, sai
+    lista.innerHTML = '';
+    const avaliacoes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    avaliacoes.forEach(txt => {
+      const li = document.createElement('li');
+      li.textContent = txt;
+      lista.appendChild(li);
+    });
   }
-})
- carregar();
+
+  if (btn && input) {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); // evita comportamento de submit se estiver em um form
+      const texto = input.value.trim();
+      if (!texto) return;
+      const avaliacoes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      avaliacoes.push(texto);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(avaliacoes));
+      input.value = '';
+      carregar();
+    });
+  }
+
+  // carrega ao abrir a página (tanto index quanto avalicao)
+  carregar();
+});
