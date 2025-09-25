@@ -31,6 +31,10 @@ header {
 }
 main {
   flex-grow: 1;
+  padding: 20px;
+}
+main div{
+  margin: 20px;
 }
 
 button {

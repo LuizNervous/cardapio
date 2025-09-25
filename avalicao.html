@@ -33,6 +33,31 @@
 
   </footer>
   <script src="script.js"></script>
+  <script type="module">
+  // Funções que vamos usar do Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  //  1. Importar as funções do Firestore
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+  // Sua configuração do Firebase (está perfeita, não mude nada)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAvnmY5oH6t6UDpeLXWsC4H9FzTxui2kJs",
+    authDomain: "cardapio-c3956.firebaseapp.com",
+    projectId: "cardapio-c3956",
+    storageBucket: "cardapio-c3956.firebasestorage.app",
+    messagingSenderId: "392232652861",
+    appId: "1:392232652861:web:7f7dcb5eaa4f21a2609a54",
+    measurementId: "G-S4RFGBL3TT"
+  };
+
+  // Inicializa o Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  //  2. Inicia o Firestore e o torna acessível para o arquivo script.js
+  // Isso cria a conexão com seu banco de dados
+  window.db = getFirestore(app); 
+
+</script>
 </body>
 
 
