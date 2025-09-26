@@ -1,71 +1,68 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Pega a conexão com o Firestore que criamos no HTML
-  // (As funções collection, addDoc e getDocs vêm do Firestore)
-  const { collection, addDoc, getDocs } =
-    "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-  // Pega os elementos da tela, igual ao seu código antigo
-  const input = document.getElementById('avainput');
-  const btn = document.getElementById('butao');
-  const lista = document.getElementById('listaavaliacoes');
-  
-  // Pega a conexão com o banco de dados que definimos no HTML
-  const db = window.db; 
+        // 🔹 Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvnmY5oH6t6UDpeLXWsC4H9FzTxui2kJs",
+            authDomain: "cardapio-c3956.firebaseapp.com",
+            projectId: "cardapio-c3956",
+            storageBucket: "cardapio-c3956.firebasestorage.app",
+            messagingSenderId: "392232652861",
+            appId: "1:392232652861:web:7f7dcb5eaa4f21a2609a54",
+            measurementId: "G-S4RFGBL3TT"
+        };
 
-  // ✨ FUNÇÃO PARA CARREGAR AS AVALIAÇÕES DO FIREBASE
-  // Esta função agora é 'async' pois conversar com a internet leva um tempo
-  async function carregar() {
-    if (!lista) return;
+        // 🔹 Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
 
-    lista.innerHTML = 'Carregando avaliações...'; // Mostra uma mensagem
-    const avaliacoesCol = collection(db, 'avaliacoes'); // Referência da sua coleção
-    
-    try {
-      // Busca os documentos da coleção no Firebase
-      const snapshot = await getDocs(avaliacoesCol);
-      lista.innerHTML = ''; // Limpa a lista antes de adicionar as novas
+        // 🔹 Conecta com o Firestore
+        const db = getFirestore(app);
 
-      snapshot.forEach(doc => {
-        // Para cada documento encontrado...
-        const dados = doc.data(); // Pega os dados de dentro dele
-        const txt = dados.texto;  // Pegamos o campo "texto"
+        // 🔹 Pega elementos da página
+        const input = document.getElementById('avainput');
+        const btn = document.getElementById('butao');
+        const lista = document.getElementById('listaavaliacoes');
 
-        const li = document.createElement('li');
-        li.textContent = txt;
-        lista.appendChild(li);
-      });
-    } catch (error) {
-        console.error("Erro ao carregar avaliações:", error);
-        lista.innerHTML = "Não foi possível carregar as avaliações.";
-    }
-  }
+        // 🔹 Função para carregar avaliações do Firestore
+        async function carregar() {
+            lista.innerHTML = 'Carregando avaliações...';
+            const avaliacoesCol = collection(db, 'avaliacoes'); // Seleciona a coleção
 
-  // ✨ FUNÇÃO PARA ENVIAR UMA NOVA AVALIAÇÃO
-  if (btn && input) {
-    // A função do clique também vira 'async'
-    btn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const texto = input.value.trim();
-      if (!texto) return; // Não faz nada se o campo estiver vazio
+            try {
+                const snapshot = await getDocs(avaliacoesCol); // Pega todos os documentos
+                lista.innerHTML = ''; // Limpa lista
+                snapshot.forEach(doc => {
+                    const dados = doc.data();
+                    const li = document.createElement('li');
+                    li.textContent = dados.texto; // Pega o campo 'texto'
+                    lista.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Erro ao carregar avaliações:", error);
+                lista.innerHTML = "Não foi possível carregar as avaliações.";
+            }
+        }
 
-      try {
-        // Adiciona um novo documento na coleção 'avaliacoes'
-        // O documento será um objeto com o texto e a data
-        await addDoc(collection(db, "avaliacoes"), {
-          texto: texto,
-          data: new Date() // Salva a data que foi enviado
-        });
+        // 🔹 Função para enviar nova avaliação
+        if (btn && input) {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const texto = input.value.trim();
+                if (!texto) return;
 
-        input.value = ''; // Limpa o campo de texto
-        carregar(); // Recarrega a lista para mostrar a nova avaliação
+                try {
+                    await addDoc(collection(db, 'avaliacoes'), {
+                        texto: texto,
+                        data: new Date()
+                    });
+                    input.value = ''; // Limpa campo
+                    carregar(); // Atualiza lista
+                } catch (error) {
+                    console.error("Erro ao adicionar avaliação:", error);
+                    alert("Ocorreu um erro ao enviar sua avaliação.");
+                }
+            });
+        }
 
-      } catch (error) {
-        console.error("Erro ao adicionar avaliação: ", error);
-        alert("Ocorreu um erro ao enviar sua avaliação.");
-      }
-    });
-  }
-
-  // Carrega as avaliações assim que a página abre
-  carregar();
-});
+        // 🔹 Carrega avaliações ao abrir a página
+        carregar();

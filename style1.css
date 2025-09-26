@@ -52,6 +52,13 @@ button:hover {
 .notas{
   background-color: aliceblue;
   border-radius: 8px;
+  padding: 10px;
+  list-style: none;
+}
+.notas li{
+  margin: 10px;
+
+    list-style: none;
 }
 input {
     border: #6a0dad 3px solid;
