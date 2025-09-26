@@ -57,8 +57,10 @@ button:hover {
 }
 .notas li{
   margin: 10px;
-
-    list-style: none;
+  background-color: rgb(140, 230, 99);
+  border-radius: 8px;
+  padding-left: 10px;
+  list-style: none;
 }
 @media (max-width:530px) {
     .dif{
