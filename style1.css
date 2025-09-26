@@ -114,9 +114,12 @@ footer {
 @media (max-width:530px) {
   .dif {
     padding: 5px;
+    margin-top: 10px;
   }
-
+  header{
+    flex-direction: column;
+  }
   input {
-    width: 190px;
+    width: 180px;
   }
 }
