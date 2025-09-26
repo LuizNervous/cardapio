@@ -6,7 +6,7 @@
 
 html {
     scroll-behavior: smooth;
-     background-color: rgb(228, 183, 146);
+    background-color: rgb(228, 183, 146);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -62,18 +62,23 @@ main {
     img {
         width: 70px;
     }
-    footer{
+
+    footer {
         padding: 10px;
     }
-}@media (max-width:300px) {
-    footer{
+}
+
+@media (max-width:300px) {
+    footer {
         display: flex;
         flex-direction: column;
     }
+
     footer div {
         padding-top: 10px;
     }
-    header{
+
+    header {
         flex-direction: column;
     }
 }
@@ -90,22 +95,22 @@ main {
 
 .Pizzas {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
     border-radius: 20px;
-  
-    margin: 50px;
-
+    margin: 20px;
     background-color: rgb(228, 183, 146);
 }
-
+.title{
+    display: flex;
+    justify-content: center;
+        color: rgb(255, 81, 0);
+}
 article {
     padding: 20px;
 }
 
-.Pizzas h1 {
-    color: rgb(43, 20, 1);
-}
 
 .Pizzas h2 {
     color: rgb(60, 30, 4);
@@ -125,14 +130,26 @@ article p {
 
 #aperitivos {
     display: flex;
-    flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
     padding: 20px;
-    border-radius: 20px;
-    
     margin-top: 20px;
     margin: 50px;
-     background-color: rgb(228, 183, 146);
+}
 
+
+#aperitivos h2 {
+    color: rgb(231, 45, 12);
+}
+#aperitivos p{
+    padding: 6px;
+}
+#aperitivos h1 {
+    color: rgb(255, 81, 0);
+}
+
+.price{
+    color: #0065a8;
 }
 
 footer {
@@ -156,7 +173,7 @@ a {
 a:hover {
     transition: color 0.4s;
     color: rgb(238, 136, 68);
-    
+
 }
 
 input {
@@ -188,9 +205,11 @@ button:hover {
 .butao {
     margin-left: 0.7rem;
 }
-.avalia a{
+
+.avalia a {
     color: #45d364;
 }
-.avalia a:hover{
+
+.avalia a:hover {
     color: #45a6d3;
 }
