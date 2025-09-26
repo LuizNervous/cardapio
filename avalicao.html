@@ -22,11 +22,18 @@
       </label>
       <div class="conteiner">
         <input type="text" id="nomeInput" placeholder="Seu nome">
+        <div class="rating-input">
+          <input type="radio" name="rating" value="5" id="star5" ><label for="star5">★</label>
+          <input type="radio" name="rating" value="4" id="star4" ><label for="star4">★</label>
+          <input type="radio" name="rating" value="3" id="star3" ><label for="star3">★</label>
+          <input type="radio" name="rating" value="2" id="star2" ><label for="star2">★</label>
+          <input type="radio" name="rating" value="1" id="star1" ><label for="star1">★</label>
+        </div>
         <div><input type="text" name="input" id="avainput" placeholder="Escreva sua avaliação..." required></div>
         <div class="butao"><button id="butao" type="submit"> Enviar</button></div>
       </div>
 
-    </div><p class="price"></p>
+    </div>
     <div class="notas">
       <h2>Todas as avaliacões</h2>
       <ul id="listaavaliacoes"></ul>

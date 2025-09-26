@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy } 
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, deleteDoc, doc  } 
   from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 // 🔹 Configuração do Firebase
@@ -23,11 +23,23 @@ const input = document.getElementById('avainput');
 const btn = document.getElementById('butao');
 const lista = document.getElementById('listaavaliacoes');
 
+function gerarEstrelas(nota) {
+    let estrelasHtml = '';
+    for (let i = 0; i < 5; i++) {
+        if (i < nota) {
+            estrelasHtml += '★'; // Estrela preenchida
+        } else {
+            estrelasHtml += '☆'; // Estrela vazia
+        }
+    }
+    return `<div class="rating-display">${estrelasHtml}</div>`;
+}
+
 // 🔹 Função para carregar avaliações
 async function carregar() {
     lista.innerHTML = 'Carregando avaliações...';
     const avaliacoesCol = collection(db, 'avaliacoes');
-    const q =query(avaliacoesCol, orderBy("data", ("desc")))
+    const q = query(avaliacoesCol, orderBy("data", "desc"));
 
     try {
         const snapshot = await getDocs(q);
@@ -47,10 +59,43 @@ async function carregar() {
             });
 
             const li = document.createElement('li');
+
+            const estrelasDisplay=gerarEstrelas(dados.estrelas || 0)
+
             li.innerHTML = `
+                ${estrelasDisplay}
                 <strong>${dados.nome}</strong> - ${dados.texto}
                 <br><small>${dataFormatada}</small>
             `;
+
+            // Cria botão de excluir
+            const btnExcluir = document.createElement('button');
+            btnExcluir.textContent = "❌";
+            btnExcluir.style.marginLeft = "10px";
+            btnExcluir.style.cursor = "pointer"; // Adiciona um cursor para indicar que é clicável
+            btnExcluir.style.border = "none";
+            btnExcluir.style.border = "none";
+            btnExcluir.style.background = "transparent";
+
+
+            // Ação do botão
+            btnExcluir.addEventListener('click', async () => {
+                if (confirm("Tem certeza que deseja excluir esta avaliação?")) {
+                    try {
+                        // Usando a referência correta do documento com a função 'doc'
+                        await deleteDoc(doc(db, "avaliacoes", docSnap.id));
+                        carregar(); // Recarrega a lista
+                    } catch (error) {
+                        console.error("Erro ao excluir:", error);
+                        alert("Não foi possível excluir a avaliação.");
+                    }
+                }
+            });
+
+            // ✅ LINHA ADICIONADA: Adiciona o botão de excluir ao item da lista (li)
+            li.appendChild(btnExcluir);
+
+            // ✅ LINHA ADICIONADA: Adiciona o item da lista (li) à lista principal (ul)
             lista.appendChild(li);
         });
 
@@ -66,20 +111,27 @@ if (btn && input && nomeInput) {
         e.preventDefault();
         const texto = input.value.trim();
         const nome = nomeInput.value.trim();
-
+        const starRating = document.querySelector('input[name="rating"]:checked')
         if (!texto || !nome) {
             alert("Preencha seu nome e sua avaliação!");
             return;
         }
+        if (!starRating) {
+            alert("Por favor, selecione uma das estrelas");
+            return;
+        }
+        const nota=parseInt(starRating.value);
 
         try {
             await addDoc(collection(db, 'avaliacoes'), {
                 nome: nome,
                 texto: texto,
+                estrelas:nota,
                 data: new Date()
             });
             input.value = '';
             nomeInput.value = '';
+            starRating.checked=false;
             carregar();
         } catch (error) {
             console.error("Erro ao adicionar avaliação:", error);

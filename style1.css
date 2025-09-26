@@ -110,7 +110,40 @@ footer {
   color: rgb(255, 255, 255);
   text-align: center;
 }
+.rating-input {
+    display: flex;
+    /* Inverte a ordem para que o hover funcione corretamente */
+    justify-content: flex-start;
+    flex-direction: row-reverse; 
+    justify-content: center;
+    margin: 10px 0;
+}
 
+/* Esconde os botões de rádio originais */
+.rating-input input[type="radio"] {
+    display: none;
+}
+
+/* Estilo inicial das estrelas (labels) */
+.rating-input label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.2s;
+}
+
+/* Mantém a cor das estrelas selecionadas (e das anteriores) */
+.rating-input input[type="radio"]:checked ~ label {
+    color: #fdd835; /* Amarelo */
+}
+
+/* Estilo para as estrelas exibidas na lista de avaliações */
+.rating-display {
+    color: #fdd835; /* Amarelo */
+    font-size: 20px;
+    margin-bottom: 5px;
+}
 @media (max-width:530px) {
   .dif {
     padding: 5px;
