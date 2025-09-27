@@ -93,7 +93,7 @@ async function carregar() {
             });
 
             // ✅ LINHA ADICIONADA: Adiciona o botão de excluir ao item da lista (li)
-            li.appendChild(btnExcluir);
+           
 
             // ✅ LINHA ADICIONADA: Adiciona o item da lista (li) à lista principal (ul)
             lista.appendChild(li);

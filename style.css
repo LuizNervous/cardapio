@@ -101,19 +101,22 @@ main {
     border-radius: 20px;
     margin: 20px;
     background-color: rgb(228, 183, 146);
+    color: white;
 }
-.title{
+
+.title {
     display: flex;
     justify-content: center;
-        color: rgb(255, 81, 0);
+    color: rgb(255, 81, 0);
 }
+
 article {
     padding: 20px;
 }
 
 
 .Pizzas h2 {
-    color: rgb(60, 30, 4);
+    color: rgb(212, 85, 26);
 }
 
 .Pizzas h3 {
@@ -128,10 +131,29 @@ article p {
     padding-left: 19px;
 }
 
+#Classicas {
+    background-image: url(imagens/calma-calabreso-calma-calma-calabreso.gif);
+    border-radius: 10px;
+    margin: 10px;
+    
+}
+
+#Especiais {
+    background-image: url(imagens/fundo6.gif);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#Doces {
+    background-image: url(imagens/lirili-larila.gif);
+    border-radius: 10px;
+    margin: 10px;
+}
+
 #aperitivos {
     display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
     margin-top: 20px;
     margin: 50px;
@@ -141,14 +163,16 @@ article p {
 #aperitivos h2 {
     color: rgb(231, 45, 12);
 }
-#aperitivos p{
+
+#aperitivos p {
     padding: 6px;
 }
+
 #aperitivos h1 {
     color: rgb(255, 81, 0);
 }
 
-.price{
+.price {
     color: #0065a8;
 }
 
