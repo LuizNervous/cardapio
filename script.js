@@ -70,12 +70,7 @@ async function carregar() {
 
             // Cria botão de excluir
             const btnExcluir = document.createElement('button');
-            btnExcluir.textContent = "❌";
-            btnExcluir.style.marginLeft = "10px";
-            btnExcluir.style.cursor = "pointer"; // Adiciona um cursor para indicar que é clicável
-            btnExcluir.style.border = "none";
-            btnExcluir.style.border = "none";
-            btnExcluir.style.background = "transparent";
+            
 
 
             // Ação do botão
