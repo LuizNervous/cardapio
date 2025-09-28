@@ -97,9 +97,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
     border-radius: 20px;
-    margin: 20px;
+    margin: 10px;
     background-color: rgb(228, 183, 146);
     color: white;
 }
@@ -124,24 +123,23 @@ article {
 }
 
 article h3 {
-    padding: 10px;
+    padding: 7px;
 }
 
 article p {
-    padding-left: 19px;
+    padding-left: 15px;
 }
 
 #Classicas {
     background-image: url(imagens/calma-calabreso-calma-calma-calabreso.gif);
     border-radius: 10px;
-    margin: 10px;
     
 }
 
 #Especiais {
     background-image: url(imagens/fundo6.gif);
     border-radius: 10px;
-    margin: 10px;
+    
 }
 
 #Doces {
@@ -156,7 +154,6 @@ article p {
     justify-content: center;
     padding: 20px;
     margin-top: 20px;
-    margin: 50px;
 }
 
 
